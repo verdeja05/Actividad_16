@@ -1,6 +1,6 @@
 // Service Worker de Inventario PWA
 // Cambiar VERSION en cada liberación para que el navegador detecte la actualización
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const CACHE = `inventario-v${VERSION}`;
 
 const ARCHIVOS = [

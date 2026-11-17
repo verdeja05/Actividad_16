@@ -19,7 +19,10 @@
         <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
         <line x1="12" y1="22.08" x2="12" y2="12"/>
       </svg>
-      <h1>Inventario</h1>
+      <div>
+        <h1>Inventario</h1>
+        <span class="subtitulo">Control de productos</span>
+      </div>
     </div>
     <div class="acciones">
       <span id="estado-red" class="chip">En línea</span>
@@ -34,8 +37,8 @@
 
   <main class="contenedor">
     <section class="tarjeta">
-      <h2>Agregar producto</h2>
-      <form id="form-producto" class="formulario">
+      <h2 id="titulo-form">Agregar producto</h2>
+      <form id="form-producto" class="formulario" novalidate>
         <label>Nombre
           <input id="nombre" type="text" required maxlength="60" placeholder="Ej. Cuaderno profesional">
         </label>
@@ -50,27 +53,53 @@
           </select>
         </label>
         <label>Cantidad
-          <input id="cantidad" type="number" required placeholder="0">
+          <input id="cantidad" type="number" min="0" step="1" required placeholder="0">
         </label>
         <label>Precio unitario
-          <input id="precio" type="number" step="0.01" required placeholder="0.00">
+          <input id="precio" type="number" min="0" step="0.01" required placeholder="0.00">
         </label>
-        <button type="submit" class="btn">Guardar producto</button>
+        <div class="botones-form">
+          <button type="submit" id="btn-guardar" class="btn">Guardar producto</button>
+          <button type="button" id="btn-cancelar" class="btn btn-borde" hidden>Cancelar</button>
+        </div>
       </form>
+      <p id="mensaje-error" class="mensaje-error" role="alert" hidden></p>
     </section>
 
     <section class="resumen">
       <div class="kpi"><span>Productos</span><strong id="total-productos">0</strong></div>
       <div class="kpi"><span>Unidades</span><strong id="total-unidades">0</strong></div>
       <div class="kpi"><span>Valor del inventario</span><strong id="valor-total">$0.00</strong></div>
+      <div class="kpi kpi-alerta"><span>Stock bajo</span><strong id="total-stock-bajo">0</strong></div>
     </section>
 
     <section class="tarjeta">
-      <h2>Productos</h2>
+      <div class="encabezado-lista">
+        <h2>Productos</h2>
+        <div class="filtros">
+          <div class="buscador">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="buscar" type="search" placeholder="Buscar producto">
+          </div>
+          <select id="filtro-categoria" aria-label="Filtrar por categoría">
+            <option value="">Todas las categorías</option>
+            <option>Papelería</option>
+            <option>Limpieza</option>
+            <option>Electrónica</option>
+            <option>Alimentos</option>
+            <option>Otros</option>
+          </select>
+        </div>
+      </div>
       <p id="vacio" class="vacio">Aún no hay productos registrados.</p>
       <ul id="lista" class="lista"></ul>
     </section>
   </main>
+
+  <div id="toast" class="toast" hidden></div>
 
   <footer class="pie">Inventario PWA · versión <span id="version"></span></footer>
 

@@ -171,3 +171,85 @@ body {
   color: var(--gris);
   font-size: 0.85rem;
 }
+
+/* ---------- Mejoras de interfaz v1.1.0 ---------- */
+.subtitulo { display: block; font-size: 0.8rem; opacity: 0.85; }
+
+.botones-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-borde { background: var(--blanco); color: var(--rosa); border: 1.5px solid var(--rosa-claro); }
+.btn-borde:hover { background: var(--rosa-fondo); }
+
+.mensaje-error {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fde7ec;
+  color: #b0003a;
+  border: 1px solid #f5a3b8;
+  font-size: 0.9rem;
+}
+
+.kpi-alerta { border-left-color: #ff8f00; }
+.kpi-alerta strong { color: #e65100; }
+
+.encabezado-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.encabezado-lista h2 { margin-bottom: 0; }
+
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; }
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--rosa-claro);
+  border-radius: 10px;
+  padding: 0 10px;
+  color: var(--rosa);
+  background: var(--blanco);
+}
+.buscador input { border: none; outline: none; padding: 9px 0; font-size: 0.95rem; min-width: 160px; }
+.filtros select {
+  padding: 9px 10px;
+  border: 1.5px solid var(--rosa-claro);
+  border-radius: 10px;
+  background: var(--blanco);
+  font-size: 0.95rem;
+}
+
+.item { transition: box-shadow 0.2s; }
+.item:hover { box-shadow: 0 2px 10px rgba(136, 14, 79, 0.1); }
+.item-bajo { border-color: #ffcc80; background: #fffaf2; }
+.item-invalido { border-color: #f5a3b8; background: #fff3f6; }
+
+.etiquetas { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+.badge-bajo { background: #fff3e0; color: #e65100; }
+.badge-invalido { background: #fde7ec; color: #b0003a; }
+
+.botones-item { display: flex; gap: 2px; }
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--rosa-oscuro);
+  color: var(--blanco);
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .item { flex-wrap: wrap; }
+  .buscador input { min-width: 0; width: 100%; }
+  .filtros, .buscador, .filtros select { width: 100%; }
+}
